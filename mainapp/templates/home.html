@@ -1,10 +1,12 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block title %}Профессия Python-программист{% endblock %}
 
 {% block content %}
     <div>
-        <img src="images/profession_image.jpg" alt="Изображение профессии">
+        <img src="{% static 'images/profession_image.jpg' %}" alt="Изображение профессии" class="prof-img">
     </div>
 
     <section>
