@@ -1,14 +1,22 @@
 {% extends 'base.html' %}
 
-{% block title %}Профессия Python-программист{% endblock %}
+{% block title %}Последние вакансии{% endblock %}
 
 {% block content %}
-    <div>
-        <img src="images/profession_image.jpg" alt="Изображение профессии">
-    </div>
-
     <section>
-        <h2>Описание профессии</h2>
-        <p></p>
+        <h2>Последние вакансии</h2>
+        <ul>
+            {% for vacancy in vacancies_data %}
+                <li>
+                    <strong>{{ vacancy.name }}</strong><br>
+                    Описание: {{ vacancy.snippet.requirement|safe }}<br>
+                    Навыки: {{ vacancy.snippet.responsibility|safe }}<br>
+                    Компания: {{ vacancy.employer.name }}<br>
+                    Оклад: {{ vacancy.salary.from }} - {{ vacancy.salary.to }} {{ vacancy.salary.currency }}<br>
+                    Регион: {{ vacancy.area.name }}<br>
+                    Дата публикации: {{ vacancy.published_at }}
+                </li>
+            {% endfor %}
+        </ul>
     </section>
 {% endblock %}

@@ -43,13 +43,12 @@ nav a:hover {
 
 main {
     flex: 1;
-    /*margin: 20px;*/
 }
 
 section {
     background-color: #fff;
     padding: 20px;
-    margin-bottom: 20px;
+    margin: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -62,11 +61,10 @@ footer {
     margin-top: auto;
 }
 
-/* Добавим стили для таблиц */
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 10px;
+    margin-top: 20px;
 }
 
 th, td {
@@ -93,5 +91,4 @@ th {
     height: auto;
     display: block;
     margin: 10px auto;
-    /*margin-bottom: 20px;*/
 }
