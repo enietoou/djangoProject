@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <div>
+            <img src="images/logo.png" alt="Логотип проекта">
+            <h1>PyInsight: Python-программист в цифрах</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}">Главная</a></li>
+                <li><a href="{% url 'demand' %}">Востребованность</a></li>
+                <li><a href="{% url 'geography' %}">География</a></li>
+                <!-- Добавить ссылки на остальные страницы -->
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <p>Бобоев Азизджон Рахматович РИ-220935</p>
+    </footer>
+</body>
+</html>
