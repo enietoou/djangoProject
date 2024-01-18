@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}{{ page_name }}{% endblock %}
+
+{% block content %}
+    {% for item in data %}
+        <section class="section-table">
+            <h2>{{ item.section.content.name }}</h2>
+            {{ item.html|safe }}
+            <img src="{% static item.graph_image_path %}" alt="График" class="graph-img">
+        </section>
+    {% endfor %}
+{% endblock %}

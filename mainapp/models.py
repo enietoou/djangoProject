@@ -11,8 +11,8 @@ class SiteSection(models.Model):
 
 class StatisticContent(models.Model):
     name = models.CharField(max_length=255)
-    html_table_path = models.FileField(upload_to='html_tables')
-    graph_image_path = models.FileField(upload_to='graph_images')
+    html_table_path = models.FileField(upload_to='mainapp/static/html_tables')
+    graph_image_path = models.FileField(upload_to='mainapp/static/graph_images')
 
     def __str__(self):
         return self.name

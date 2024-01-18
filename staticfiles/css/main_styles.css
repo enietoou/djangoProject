@@ -43,14 +43,18 @@ nav a:hover {
 
 main {
     flex: 1;
+    padding-bottom: 20px;
 }
 
 section {
     background-color: #fff;
     padding: 20px;
-    margin: 20px;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 1000px;
 }
 
 footer {
@@ -87,7 +91,7 @@ th {
 }
 
 .prof-img {
-    width: 400px;
+    width: 300px;
     height: auto;
     display: block;
     margin: 10px auto;
