@@ -1,30 +1,26 @@
 from django.db import models
 
-# Create your models here.
-
-class Vacancy(models.Model):
+class SiteSection(models.Model):
     name = models.CharField(max_length=255)
-    key_skills = models.TextField(blank=True, null=True)
-    salary_from = models.FloatField(blank=True, null=True)
-    salary_to = models.FloatField(blank=True, null=True)
-    salary_currency = models.CharField(max_length=10, blank=True, null=True)
-    area_name = models.CharField(max_length=255, blank=True, null=True)
-    published_at = models.DateTimeField(blank=True, null=True)
+    url_name = models.CharField(max_length=255)
+    url_path = models.CharField(max_length=255)
 
     def __str__(self):
         return self.name
 
-class CurrencyRate(models.Model):
-    date = models.DateField(unique=True)
-    BYR = models.FloatField(null=True, blank=True)
-    USD = models.FloatField(null=True, blank=True)
-    EUR = models.FloatField(null=True, blank=True)
-    KZT = models.FloatField(null=True, blank=True)
-    UAH = models.FloatField(null=True, blank=True)
-    AZN = models.FloatField(null=True, blank=True)
-    KGS = models.FloatField(null=True, blank=True)
-    UZS = models.FloatField(null=True, blank=True)
-    GEL = models.FloatField(null=True, blank=True)
+
+class StatisticContent(models.Model):
+    name = models.CharField(max_length=255)
+    html_table_path = models.FileField(upload_to='html_tables')
+    graph_image_path = models.FileField(upload_to='graph_images')
 
     def __str__(self):
-        return str(self.date)
+        return self.name
+
+
+class Section(models.Model):
+    content = models.ForeignKey(StatisticContent, on_delete=models.CASCADE)
+    site_section = models.ForeignKey(SiteSection, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.site_section.name + " " + self.content.name

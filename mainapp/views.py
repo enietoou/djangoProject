@@ -3,14 +3,17 @@ from django.shortcuts import render
 import requests
 from django.views import View
 from django.http import JsonResponse
-# Create your views here.
+
+
 
 
 def home(request):
+    print(request.path)
     return render(request, 'home.html')
 
 
 def demand(request):
+    print(request.path)
     return render(request, 'demand.html')
 
 
