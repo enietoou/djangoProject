@@ -1,6 +1,7 @@
 from django.shortcuts import render
-
+from mainapp.scripts.hh_api import get_vacancies_from_hh_api
 import requests
+
 from django.views import View
 from django.http import JsonResponse
 from mainapp.models import Section
@@ -33,20 +34,14 @@ def skills(request):
     return render(request, 'skills.html', {'sections': sections})
 
 
+
+
 def recent_vacancies(request):
-    # hh_api_key = "Ваш_ключ_API_HH"
-    profession = "python"
+    profession = "python-программист"
 
-    # Формируем URL запрос
-    url = f"https://api.hh.ru/vacancies?text={profession}&period=1&per_page=10&order_by=publication_time&sort_order=desc"
+    data = get_vacancies_from_hh_api(profession)
 
-    # Выполняем GET-запрос к API HH
-    # response = requests.get(url, headers={"User-Agent": "MainApp", "Authorization": f"Bearer {hh_api_key}"})
-    response = requests.get(url, headers={"User-Agent": "MainApp"})
-
-    if response.status_code == 200:
-        vacancies_data = response.json()["items"]
-        return render(request, 'recent_vacancies.html', {'vacancies_data': vacancies_data})
+    if data is not None:
+        return render(request, 'recent_vacancies.html', {'vacancies_data': data})
     else:
-        # Обработка ошибок
         return JsonResponse({"error": "Failed to fetch data from HH API"}, status=500)
