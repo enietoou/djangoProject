@@ -1224,7 +1224,7 @@ XRegExp.addToken = function (regex, handler, options) {
   XRegExp.cache.flush('patterns');
 };
 /**
- * Caches and returns the result of calling `XRegExp(pattern, flags)`. On any subsequent call with
+ * Caches and returns the result_files of calling `XRegExp(pattern, flags)`. On any subsequent call with
  * the same pattern and flag combination, the cached copy of the regex is returned.
  *
  * @memberOf XRegExp
@@ -1259,7 +1259,7 @@ XRegExp.cache.flush = function (cacheName) {
   }
 };
 /**
- * Escapes any regular expression metacharacters, for use when matching literal strings. The result
+ * Escapes any regular expression metacharacters, for use when matching literal strings. The result_files
  * can safely be used at any position within a regex that uses any flags.
  *
  * @memberOf XRegExp
@@ -1314,12 +1314,12 @@ XRegExp.escape = function (str) {
  * match.groups.hex; // -> '2620'
  *
  * // With pos and sticky, in a loop
- * let pos = 3, result = [], match;
+ * let pos = 3, result_files = [], match;
  * while (match = XRegExp.exec('<1><2><3><4>5<6>', /<(\d)>/, pos, 'sticky')) {
- *   result.push(match[1]);
+ *   result_files.push(match[1]);
  *   pos = match.index + match[0].length;
  * }
- * // result -> ['2', '3', '4']
+ * // result_files -> ['2', '3', '4']
  */
 
 
@@ -1501,7 +1501,7 @@ XRegExp.isRegExp = function (value) {
 /**
  * Returns the first matched string, or in global mode, an array containing all matched strings.
  * This is essentially a more convenient re-implementation of `String.prototype.match` that gives
- * the result types you actually want (string instead of `exec`-style array in match-first mode,
+ * the result_files types you actually want (string instead of `exec`-style array in match-first mode,
  * and an empty array instead of `null` when no matches are found in match-all mode). It also lets
  * you override flag g and ignore `lastIndex`, and fixes browser bugs.
  *
@@ -1748,15 +1748,15 @@ XRegExp.replaceEach = function (str, replacements) {
 };
 /**
  * Splits a string into an array of strings using a regex or string separator. Matches of the
- * separator are not included in the result array. However, if `separator` is a regex that contains
- * capturing groups, backreferences are spliced into the result each time `separator` is matched.
+ * separator are not included in the result_files array. However, if `separator` is a regex that contains
+ * capturing groups, backreferences are spliced into the result_files each time `separator` is matched.
  * Fixes browser bugs compared to the native `String.prototype.split` and can be used reliably
  * cross-browser.
  *
  * @memberOf XRegExp
  * @param {String} str String to split.
  * @param {RegExp|String} separator Regex or string to use for separating the string.
- * @param {Number} [limit] Maximum number of items to include in the result array.
+ * @param {Number} [limit] Maximum number of items to include in the result_files array.
  * @returns {Array} Array of substrings.
  * @example
  *
@@ -1768,7 +1768,7 @@ XRegExp.replaceEach = function (str, replacements) {
  * XRegExp.split('a b c', ' ', 2);
  * // -> ['a', 'b']
  *
- * // Backreferences in result array
+ * // Backreferences in result_files array
  * XRegExp.split('..word1..', /([a-z]+)(\d+)/i);
  * // -> ['..', 'word', '1', '..']
  */
@@ -1924,7 +1924,7 @@ XRegExp.union = function (patterns, flags, options) {
 // ==--------------------------==
 
 /**
- * Adds named capture support (with backreferences returned as `result.name`), and fixes browser
+ * Adds named capture support (with backreferences returned as `result_files.name`), and fixes browser
  * bugs in the native `RegExp.prototype.exec`. Use via `XRegExp.exec`.
  *
  * @memberOf RegExp
@@ -2011,13 +2011,13 @@ fixed.test = function (str) {
   return !!fixed.exec.call(this, str);
 };
 /**
- * Adds named capture support (with backreferences returned as `result.name`), and fixes browser
+ * Adds named capture support (with backreferences returned as `result_files.name`), and fixes browser
  * bugs in the native `String.prototype.match`.
  *
  * @memberOf String
  * @param {RegExp|*} regex Regex to search with. If not a regex object, it is passed to `RegExp`.
  * @returns {Array} If `regex` uses flag g, an array of match strings or `null`. Without flag g,
- *   the result of calling `regex.exec(this)`.
+ *   the result_files of calling `regex.exec(this)`.
  */
 
 
@@ -2221,7 +2221,7 @@ fixed.replace = function (search, replacement) {
  *
  * @memberOf String
  * @param {RegExp|String} separator Regex or string to use for separating the string.
- * @param {Number} [limit] Maximum number of items to include in the result array.
+ * @param {Number} [limit] Maximum number of items to include in the result_files array.
  * @returns {!Array} Array of substrings.
  */
 
@@ -4719,7 +4719,7 @@ var min = Math.min;
 
 // Helper for a popular repeating case of the spec:
 // Let integer be ? ToInteger(index).
-// If integer < 0, let result be max((length + integer), 0); else let result be min(integer, length).
+// If integer < 0, let result_files be max((length + integer), 0); else let result_files be min(integer, length).
 module.exports = function (index, length) {
   var integer = toIntegerOrInfinity(index);
   return integer < 0 ? max(integer + length, 0) : min(integer, length);

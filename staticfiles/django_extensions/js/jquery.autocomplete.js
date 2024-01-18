@@ -82,7 +82,7 @@
     };
 
     /**
-     * Sanitize result
+     * Sanitize result_files
      * @param {Object} result
      * @returns {Object} object with members value (String) and data (Object)
      * @private
@@ -688,7 +688,7 @@
      * Default filter for results
      * @param {Object} result
      * @param {String} filter
-     * @returns {boolean} Include this result
+     * @returns {boolean} Include this result_files
      * @private
      */
     $.Autocompleter.prototype.defaultFilter = function(result, filter) {
@@ -713,10 +713,10 @@
     };
 
     /**
-     * Filter result
+     * Filter result_files
      * @param {Object} result
      * @param {String} filter
-     * @returns {boolean} Include this result
+     * @returns {boolean} Include this result_files
      * @private
      */
     $.Autocompleter.prototype.filterResult = function(result, filter) {
@@ -817,7 +817,7 @@
     };
 
     /**
-     * Create a results item (LI element) from a result
+     * Create a results item (LI element) from a result_files
      * @param result
      */
     $.Autocompleter.prototype.createItemFromResult = function(result) {
