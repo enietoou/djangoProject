@@ -17,6 +17,7 @@ def get_sections(request):
     page_name = SiteSection.objects.filter(url_path=request.path)[0].name
     data = []
     for section in sections:
+        print(section.content.html_table_path.path)
         with open(section.content.html_table_path.path, 'r') as f:
             html = f.read()
             data.append({'section': section,
