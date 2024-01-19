@@ -17,12 +17,11 @@ def get_sections(request):
     page_name = SiteSection.objects.filter(url_path=request.path)[0].name
     data = []
     for section in sections:
-        print(section.content.html_table_path.path)
         with open(section.content.html_table_path.path, 'r') as f:
             html = f.read()
             data.append({'section': section,
                          'html': html,
-                         'graph_image_path': '/'.join(section.content.graph_image_path.path.split("/")[-2:])})
+                         'graph_image_path': section.content.graph_image_path.url})
     return render(request, 'site_section.html', {'data': data,
                                                  'page_name': page_name,
                                                  'site_sections': site_sections})
