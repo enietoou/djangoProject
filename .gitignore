@@ -1,2 +1,4 @@
 /scripts/vacancies.csv
 /scripts/vacancies_rub.csv
+/staticfiles/
+/db.sqlite3
