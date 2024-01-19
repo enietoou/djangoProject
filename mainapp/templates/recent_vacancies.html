@@ -3,19 +3,16 @@
 {% block title %}Последние вакансии{% endblock %}
 
 {% block content %}
-        {% for vacancy in vacancies_data %}
-            <section>
-                <ul>
-                    <li>
-                        <h2>{{ vacancy.name }}</h2><br>
-                        Описание: {{ vacancy.description|safe }}<br>
-                        Навыки: {{ vacancy.key_skills|safe }}<br>
-                        Компания: {{ vacancy.employer }}<br>
-                        Оклад: {{ vacancy.salary.value }} {{ vacancy.salary.currency }}<br>
-                        Регион: {{ vacancy.area_name }}<br>
-                        Дата публикации: {{ vacancy.published_at }}
-                    </li>
-                </ul>
-            </section>
-        {% endfor %}
+    {% for vacancy in vacancies_data %}
+        <section class="vacancy-container">
+            <h2 class="vacancy-name">{{ vacancy.name }}</h2>
+            <h3 class="vacancy-desc">Описание:</h3>
+            <div class="vacancy-desc-content">{{ vacancy.description|safe }}</div>
+            <p><strong class="vacancy-strong">Навыки:</strong> {{ vacancy.key_skills|safe }}</p>
+            <p><strong class="vacancy-strong">Компания:</strong> {{ vacancy.employer }}</p>
+            <p><strong>Оклад:</strong> {{ vacancy.salary }}</p>
+            <p><strong class="vacancy-strong">Регион:</strong> {{ vacancy.area_name }}</p>
+            <p><strong class="vacancy-strong">Дата публикации:</strong> {{ vacancy.published_at }}</p>
+        </section>
+    {% endfor %}
 {% endblock %}

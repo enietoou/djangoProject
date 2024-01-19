@@ -1,3 +1,4 @@
+//Scroll to top
 $(document).ready(function() {
     // Отслеживаем событие прокрутки
     $(window).scroll(function() {
